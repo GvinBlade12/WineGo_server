@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:latest
+    container_name: winego_db_container
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: winego_db
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+  adminer:
+    image: adminer
+    container_name: winegp_adminer
+    restart: always
+    ports:
+      - "8081:8080"
+
+volumes:
+  postgres_data:

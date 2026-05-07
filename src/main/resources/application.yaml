@@ -1,0 +1,15 @@
+ktor:
+  deployment:
+    port: 8080
+  application:
+    modules:
+      - com.example.SerializationKt.configureSerialization
+      - com.example.PostgresKt.configurePostgres
+      - com.example.ResourcesKt.configureResources
+      - com.example.ExposedKt.configureExposed
+      - com.example.RoutingKt.configureRouting
+
+postgres:
+  url: "jdbc:postgresql://127.0.0.1:5433/winego_db"
+  user: "admin"
+  password: "pass"
